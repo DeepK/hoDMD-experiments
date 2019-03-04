@@ -1,0 +1,534 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> 
+
+<head>
+<title>Datasets for single-label text categorization</title>
+</head>
+
+<body>
+
+<h2>Datasets for single-label text categorization</h2>
+
+<p>This page makes available some files containing the terms I
+obtained by pre-processing some well-known datasets used for text
+categorization.
+
+<p><strong>I did not create the datasets.</strong> I am simply making
+available already processed versions of them, for three main reasons:
+
+<ul>
+<li> To allow an easier comparison among different algorithms.  Many
+papers in this area use these datasets but report slightly different
+numbers of terms for each of them.  By having exactly the same terms,
+the comparisons made using these files will be more reliable.
+
+<li> To ease the work of people starting out in this field.  Because
+these files contain less information than the original ones, they can
+have a simpler format and thus will be easier to process.  The most
+common pre-processing steps are also provided.
+
+<li> To provide <strong>single-label</strong> datasets, which some of
+the original datasets were not.
+</ul>
+
+<p>I make them available here on the same terms as they were
+originally available, which is basically for research purposes.  If
+you want to use them for any other purpose, please ask for permission
+from the original creator.  You can reach their homepages by following
+the links next to each one of them.
+
+
+<h2>20 Newsgroups</h2>
+
+<p>I downloaded the 20Newsgroups dataset from <a
+href="http://people.csail.mit.edu/u/j/jrennie/public_html/20Newsgroups/">Jason
+Rennie's page</a> and used the "bydate" version, because it already
+had a standard train/test split.  This dataset is a
+collection of approximately 20,000 newsgroup documents, partitioned
+(nearly) evenly across 20 different newsgroups.
+
+<p>Although already cleaned-up, this dataset still had several
+attachments, many PGP keys and some duplicates.
+
+<p>After removing them and the messages that became empty because of
+it the distribution of train and test messages was the following for
+each newsgroup:
+
+<p><table border="1" align="center">
+<tr> <th colspan="4">20 Newsgroups</th></tr>
+<tr> <th>Class</th><th># train docs</th><th># test docs</th><th>Total # docs</th></tr>
+<tr align="right"><td>alt.atheism</td><td>480</td><td>319</td><td>799</td></tr>
+<tr align="right"><td>comp.graphics</td><td>584</td><td>389</td><td>973</td></tr>
+<tr align="right"><td>comp.os.ms-windows.misc</td><td>572</td><td>394</td><td>966</td></tr>
+<tr align="right"><td>comp.sys.ibm.pc.hardware</td><td>590</td><td>392</td><td>982</td></tr>
+<tr align="right"><td>comp.sys.mac.hardware</td><td>578</td><td>385</td><td>963</td></tr>
+<tr align="right"><td>comp.windows.x</td><td>593</td><td>392</td><td>985</td></tr>
+<tr align="right"><td>misc.forsale</td><td>585</td><td>390</td><td>975</td></tr>
+<tr align="right"><td>rec.autos</td><td>594</td><td>395</td><td>989</td></tr>
+<tr align="right"><td>rec.motorcycles</td><td>598</td><td>398</td><td>996</td></tr>
+<tr align="right"><td>rec.sport.baseball</td><td>597</td><td>397</td><td>994</td></tr>
+<tr align="right"><td>rec.sport.hockey</td><td>600</td><td>399</td><td>999</td></tr>
+<tr align="right"><td>sci.crypt</td><td>595</td><td>396</td><td>991</td></tr>
+<tr align="right"><td>sci.electronics</td><td>591</td><td>393</td><td>984</td></tr>
+<tr align="right"><td>sci.med</td><td>594</td><td>396</td><td>990</td></tr>
+<tr align="right"><td>sci.space</td><td>593</td><td>394</td><td>987</td></tr>
+<tr align="right"><td>soc.religion.christian</td><td>598</td><td>398</td><td>996</td></tr>
+<tr align="right"><td>talk.politics.guns</td><td>545</td><td>364</td><td>909</td></tr>
+<tr align="right"><td>talk.politics.mideast</td><td>564</td><td>376</td><td>940</td></tr>
+<tr align="right"><td>talk.politics.misc</td><td>465</td><td>310</td><td>775</td></tr>
+<tr align="right"><td>talk.religion.misc</td><td>377</td><td>251</td><td>628</td></tr>
+<tr align="right"><th>Total</th><th>11293</th><th>7528</th><th>18821</th></tr>
+</table>
+ 
+
+<h2>Reuters 21578</h2>
+
+<p>I downloaded the Reuters-21578 dataset from <a
+href="http://www.daviddlewis.com/resources/testcollections/reuters21578/">David
+Lewis' page</a> and used the standard "modApté" train/test split.  These documents
+appeared on the Reuters newswire in 1987 and were manually classified
+by personnel from Reuters Ltd.  
+
+<p>Due to the fact that the class distribution for these documents is
+very skewed, two sub-collections are usually considered for text
+categorization tasks (see this <a
+href="http://www.math.unipd.it/~fabseb60/Publications/JASIST05.pdf">paper</a>):
+
+<ul>
+<li><strong>R10</strong> The set of the 10 classes with the highest number of 
+positive training examples.
+<li><strong>R90</strong> The set of the 90 classes with at least one positive 
+training and testing example.
+</ul>
+
+<p>Moreover, many of these documents are classified as having no topic
+at all or with more than one topic.  In fact, you can see the
+distribution of the documents per number of topics in the following
+table, where <i># train docs</i> and <i># test docs</i> refer to
+the <i>Mod Apté</i> split and <i># other</i> refers to documents
+that were not considered in this split:
+
+<p><table border="1" align="center">
+<tr> <th colspan="5">Reuters 21578</th></tr>
+<tr> <th>#&nbsp;Topics</th><th># train docs</th><th># test docs</th><th># other</th><th>Total # docs</th></tr>
+<tr align="right"><td>0</td><td>1828</td><td>280</td><td>8103</td><td>10211</td></tr>
+<tr align="right"><td>1</td><td>6552</td><td>2581</td><td>361</td><td>9494</td></tr>
+<tr align="right"><td>2</td><td>890</td><td>309</td><td>135</td><td>1334</td></tr>
+<tr align="right"><td>3</td><td>191</td><td>64</td><td>55</td><td>310</td></tr>
+<tr align="right"><td>4</td><td>62</td><td>32</td><td>10</td><td>104</td></tr>
+<tr align="right"><td>5</td><td>39</td><td>14</td><td>8</td><td>61</td></tr>
+<tr align="right"><td>6</td><td>21</td><td>6</td><td>3</td><td>30</td></tr>
+<tr align="right"><td>7</td><td>7</td><td>4</td><td>0</td><td>11</td></tr>
+<tr align="right"><td>8</td><td>4</td><td>2</td><td>0</td><td>6</td></tr>
+<tr align="right"><td>9</td><td>4</td><td>2</td><td>0</td><td>6</td></tr>
+<tr align="right"><td>10</td><td>3</td><td>1</td><td>0</td><td>4</td></tr>
+<tr align="right"><td>11</td><td>0</td><td>1</td><td>1</td><td>2</td></tr>
+<tr align="right"><td>12</td><td>1</td><td>1</td><td>0</td><td>2</td></tr>
+<tr align="right"><td>13</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr align="right"><td>14</td><td>0</td><td>2</td><td>0</td><td>2</td></tr>
+<tr align="right"><td>15</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr align="right"><td>16</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+</table>
+
+<p>As the goal in this page is to consider
+<strong>single-labeled</strong> datasets, all the documents with less
+than or with more than one topic were eliminated.  With this some of
+the classes in R10 and R90 were left with no train or test documents.
+
+<p>Considering only the documents with a single topic and the classes
+which still have at least one train and one test example, we have 8 of the
+10 most frequent classes and 52 of the original 90.  
+
+<p>Following Sebastiani's convention, we will call these sets
+<strong>R8</strong> and <strong>R52</strong>.  Note that from R10 to
+R8 the classes <i>corn</i> and <i>wheat</i>, which are intimately
+related to the class <i>grain</i> disapeared and this last class lost
+many of its documents.
+
+<p>The distribution of documents per class is the following for
+<strong>R8</strong> and <strong>R52</strong>:
+
+<p><table border="1" align="center">
+<tr> <th colspan="4">R8</th></tr>
+<tr> <th>Class</th><th># train docs</th><th># test docs</th><th>Total # docs</th></tr>
+<tr align="right"><td>acq</td><td>1596</td><td>696</td><td>2292</td></tr>
+<tr align="right"><td>crude</td><td>253</td><td>121</td><td>374</td></tr>
+<tr align="right"><td>earn</td><td>2840</td><td>1083</td><td>3923</td></tr>
+<tr align="right"><td>grain</td><td>41</td><td>10</td><td>51</td></tr>
+<tr align="right"><td>interest</td><td>190</td><td>81</td><td>271</td></tr>
+<tr align="right"><td>money-fx</td><td>206</td><td>87</td><td>293</td></tr>
+<tr align="right"><td>ship</td><td>108</td><td>36</td><td>144</td></tr>
+<tr align="right"><td>trade</td><td>251</td><td>75</td><td>326</td></tr>
+<tr align="right"><th>Total</th><th>5485</th><th>2189</th><th>7674</th></tr>
+</table>
+
+<p><table border="1" align="center">
+<tr> <th colspan="4">R52</th></tr>
+<tr> <th>Class</th><th># train docs</th><th># test docs</th><th>Total # docs</th></tr>
+<tr align="right"><td>acq</td><td>1596</td><td>696</td><td>2292</td></tr>
+<tr align="right"><td>alum</td><td>31</td><td>19</td><td>50</td></tr>
+<tr align="right"><td>bop</td><td>22</td><td>9</td><td>31</td></tr>
+<tr align="right"><td>carcass</td><td>6</td><td>5</td><td>11</td></tr>
+<tr align="right"><td>cocoa</td><td>46</td><td>15</td><td>61</td></tr>
+<tr align="right"><td>coffee</td><td>90</td><td>22</td><td>112</td></tr>
+<tr align="right"><td>copper</td><td>31</td><td>13</td><td>44</td></tr>
+<tr align="right"><td>cotton</td><td>15</td><td>9</td><td>24</td></tr>
+<tr align="right"><td>cpi</td><td>54</td><td>17</td><td>71</td></tr>
+<tr align="right"><td>cpu</td><td>3</td><td>1</td><td>4</td></tr>
+<tr align="right"><td>crude</td><td>253</td><td>121</td><td>374</td></tr>
+<tr align="right"><td>dlr</td><td>3</td><td>3</td><td>6</td></tr>
+<tr align="right"><td>earn</td><td>2840</td><td>1083</td><td>3923</td></tr>
+<tr align="right"><td>fuel</td><td>4</td><td>7</td><td>11</td></tr>
+<tr align="right"><td>gas</td><td>10</td><td>8</td><td>18</td></tr>
+<tr align="right"><td>gnp</td><td>58</td><td>15</td><td>73</td></tr>
+<tr align="right"><td>gold</td><td>70</td><td>20</td><td>90</td></tr>
+<tr align="right"><td>grain</td><td>41</td><td>10</td><td>51</td></tr>
+<tr align="right"><td>heat</td><td>6</td><td>4</td><td>10</td></tr>
+<tr align="right"><td>housing</td><td>15</td><td>2</td><td>17</td></tr>
+<tr align="right"><td>income</td><td>7</td><td>4</td><td>11</td></tr>
+<tr align="right"><td>instal-debt</td><td>5</td><td>1</td><td>6</td></tr>
+<tr align="right"><td>interest</td><td>190</td><td>81</td><td>271</td></tr>
+<tr align="right"><td>ipi</td><td>33</td><td>11</td><td>44</td></tr>
+<tr align="right"><td>iron-steel</td><td>26</td><td>12</td><td>38</td></tr>
+<tr align="right"><td>jet</td><td>2</td><td>1</td><td>3</td></tr>
+<tr align="right"><td>jobs</td><td>37</td><td>12</td><td>49</td></tr>
+<tr align="right"><td>lead</td><td>4</td><td>4</td><td>8</td></tr>
+<tr align="right"><td>lei</td><td>11</td><td>3</td><td>14</td></tr>
+<tr align="right"><td>livestock</td><td>13</td><td>5</td><td>18</td></tr>
+<tr align="right"><td>lumber</td><td>7</td><td>4</td><td>11</td></tr>
+<tr align="right"><td>meal-feed</td><td>6</td><td>1</td><td>7</td></tr>
+<tr align="right"><td>money-fx</td><td>206</td><td>87</td><td>293</td></tr>
+<tr align="right"><td>money-supply</td><td>123</td><td>28</td><td>151</td></tr>
+<tr align="right"><td>nat-gas</td><td>24</td><td>12</td><td>36</td></tr>
+<tr align="right"><td>nickel</td><td>3</td><td>1</td><td>4</td></tr>
+<tr align="right"><td>orange</td><td>13</td><td>9</td><td>22</td></tr>
+<tr align="right"><td>pet-chem</td><td>13</td><td>6</td><td>19</td></tr>
+<tr align="right"><td>platinum</td><td>1</td><td>2</td><td>3</td></tr>
+<tr align="right"><td>potato</td><td>2</td><td>3</td><td>5</td></tr>
+<tr align="right"><td>reserves</td><td>37</td><td>12</td><td>49</td></tr>
+<tr align="right"><td>retail</td><td>19</td><td>1</td><td>20</td></tr>
+<tr align="right"><td>rubber</td><td>31</td><td>9</td><td>40</td></tr>
+<tr align="right"><td>ship</td><td>108</td><td>36</td><td>144</td></tr>
+<tr align="right"><td>strategic-metal</td><td>9</td><td>6</td><td>15</td></tr>
+<tr align="right"><td>sugar</td><td>97</td><td>25</td><td>122</td></tr>
+<tr align="right"><td>tea</td><td>2</td><td>3</td><td>5</td></tr>
+<tr align="right"><td>tin</td><td>17</td><td>10</td><td>27</td></tr>
+<tr align="right"><td>trade</td><td>251</td><td>75</td><td>326</td></tr>
+<tr align="right"><td>veg-oil</td><td>19</td><td>11</td><td>30</td></tr>
+<tr align="right"><td>wpi</td><td>14</td><td>9</td><td>23</td></tr>
+<tr align="right"><td>zinc</td><td>8</td><td>5</td><td>13</td></tr>
+<tr align="right"><th>Total</th><th>6532</th><th>2568</th><th>9100</th></tr>
+</table>
+
+
+<h2>Cade</h2>
+
+<p>The documents in the <strong>Cade12</strong> correspond to a subset
+of web pages extracted from the CADÊ Web Directory, which points to
+Brazilian web pages classified by human experts.  This directory is
+available at <a href="http://www.cade.com.br">Cade's Homepage</a>, in
+Brazilian Portuguese.
+
+<p>A pre-processed version of this dataset was made available to me by 
+ <a href="http://homepages.dcc.ufmg.br/~marco/">Marco Cristo</a>, from
+ Universidade Federal de Minas Gerais, in Brazil.  This dataset is
+ part of project <a
+ href="https://garnize.latin.dcc.ufmg.br/savannah/projects/cadecol">Gerindo</a>. 
+
+<p>Because there is no standard train/test split for this dataset, and
+in order to be consistent with the previous ones, I randomly chose
+two thirds of the documents for training and the remaining third for
+testing. 
+
+<p>For this particular split, the distribution of documents per class
+is the following: 
+
+
+<p><table border="1" align="center">
+<tr> <th colspan="4">Cade12</th></tr>
+<tr> <th>Class</th><th># train docs</th><th># test docs</th><th>Total # docs</th></tr>
+<tr align="right"><td>01--servicos        </td><td>5627  </td><td>2846 </td><td> 8473 </td></tr>
+<tr align="right"><td>02--sociedade       </td><td>4935  </td><td>2428 </td><td> 7363 </td></tr>
+<tr align="right"><td>03--lazer           </td><td>3698  </td><td>1892 </td><td> 5590 </td></tr>
+<tr align="right"><td>04--informatica     </td><td>2983  </td><td>1536 </td><td> 4519 </td></tr>
+<tr align="right"><td>05--saude           </td><td>2118  </td><td>1053 </td><td> 3171 </td></tr>
+<tr align="right"><td>06--educacao        </td><td>1912  </td><td>944  </td><td> 2856 </td></tr>
+<tr align="right"><td>07--internet        </td><td>1585  </td><td>796  </td><td> 2381 </td></tr>
+<tr align="right"><td>08--cultura         </td><td>1494  </td><td>643  </td><td> 2137 </td></tr>
+<tr align="right"><td>09--esportes        </td><td>1277  </td><td>630  </td><td> 1907 </td></tr>
+<tr align="right"><td>10--noticias        </td><td>701   </td><td>381  </td><td> 1082 </td></tr>
+<tr align="right"><td>11--ciencias        </td><td>569   </td><td>310  </td><td> 879  </td></tr>
+<tr align="right"><td>12--compras-online  </td><td>423   </td><td>202  </td><td> 625  </td></tr>
+<tr align="right"><th>Total               </th><th>27322 </th><th>13661</th><th> 40983</th></tr>
+</table>
+
+
+<h2>WebKB</h2>
+
+<p>The documents in the <strong>WebKB</strong> are webpages collected
+by the World Wide Knowledge Base (Web->Kb) project of the CMU text
+learning group, and were downloaded from <a
+href="http://www.cs.cmu.edu/afs/cs.cmu.edu/project/theo-20/www/data/">The
+4 Universities Data Set Homepage</a>.  These pages were collected from
+computer science departments of various universities in 1997, manually
+classified into seven different classes: student, faculty, staff,
+department, course, project, and other.
+
+<p>The class other is a collection of pages that were not deemed the
+``main page'' representing an instance of the previous six classes.
+For example, a particular faculty member may be represented by home
+page, a publications list, a vitae and several research interests
+pages.  Only the faculty member's home page was placed in the faculty
+class.  The publications list, vitae and research interests pages were
+all placed in the other category.
+
+<p>For each class, the collection contains pages from four universities:
+Cornell, Texas, Washington, Wisconsin, and other miscellaneous pages
+collected from other universities.
+
+<p>I discarded the classes Department and Staff because there were
+only a few pages from each university.  I also discarded the class
+Other because pages were very different among this class.
+
+<p>Because there is no standard train/test split for this dataset, and
+in order to be consistent with the previous ones, I randomly chose
+two thirds of the documents for training and the remaining third for
+testing. 
+
+<p>For this particular split, the distribution of documents per class
+is the following: 
+
+
+<p><table border="1" align="center">
+<tr> <th colspan="4">WebKB</th></tr>
+<tr>              <th>Class    </th><th># train docs</th><th># test docs</th><th>Total # docs</th></tr>
+<tr align="right"><td>project  </td><td> 336 </td><td> 168 </td><td> 504 </td></tr>
+<tr align="right"><td>course   </td><td> 620 </td><td> 310 </td><td> 930 </td></tr>
+<tr align="right"><td>faculty  </td><td> 750 </td><td> 374 </td><td>1124 </td></tr>
+<tr align="right"><td>student  </td><td>1097 </td><td> 544 </td><td>1641 </td></tr>
+<tr align="right"><th>Total    </th><th>2803 </th><th>1396 </th><th>4199 </th></tr>
+</table>
+
+
+
+<h2>The files</h2>
+
+From here, you can download the files.
+
+<p><table border="1" align="center">
+<tr align="center">
+  <th colspan="1"></th>
+  <th colspan="2">20 Newsgroups</th> 
+</tr>
+<tr align="center">
+  <th></th>
+  <th>Train</th> <th>Test</th> 
+</tr>
+<tr align="right">
+  <td>#&nbsp;documents</td>
+  <td>11293 docs</td>
+  <td> 7528 docs</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>all-terms</strong></div></td>
+  <td><a href="20ng-train-all-terms.txt">20ng-train-all-terms</a><br>15.91 Mb</td>
+  <td><a href="20ng-test-all-terms.txt">20ng-test-all-terms</a><br>10.31 Mb</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>no-short</strong></div></td>
+  <td><a href="20ng-train-no-short.txt">20ng-train-no-short</a><br>14.06 Mb</td>
+  <td><a href="20ng-test-no-short.txt">20ng-test-no-short</a><br>9.12 Mb</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>no-stop</strong></div></td>
+  <td><a href="20ng-train-no-stop.txt">20ng-train-no-stop</a><br>10.59 Mb</td>
+  <td><a href="20ng-test-no-stop.txt">20ng-test-no-stop</a><br>6.86 Mb</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>stemmed</strong></div></td>
+  <td><a href="20ng-train-stemmed.txt">20ng-train-stemmed</a><br>9.46 Mb</td>
+  <td><a href="20ng-test-stemmed.txt">20ng-test-stemmed</a><br>6.13 Mb</td>
+</tr>
+</table>
+
+
+<p><table border="1" align="center">
+<tr align="center">
+  <th colspan="1"></th>
+  <th colspan="2">Reuters-21578 R8</th>  
+  <th colspan="2">Reuters-21578 R52</th>  
+</tr>
+<tr align="center">
+  <th></th>
+  <th>Train</th> <th>Test</th> 
+  <th>Train</th> <th>Test</th> 
+</tr>
+<tr align="right">
+  <td>#&nbsp;documents</td>
+  <td> 5485 docs</td>
+  <td> 2189 docs</td>
+  <td> 6532 docs</td>
+  <td> 2568 docs</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>all-terms</strong></div></td>
+  <td><a href="r8-train-all-terms.txt">r8-train-all-terms</a><br>3.20 Mb</td>
+  <td><a href="r8-test-all-terms.txt">r8-test-all-terms</a><br>1.14 Mb</td>
+  <td><a href="r52-train-all-terms.txt">r52-train-all-terms</a><br>4.08 Mb</td>
+  <td><a href="r52-test-all-terms.txt">r52-test-all-terms</a><br>1.45 Mb</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>no-short</strong></div></td>
+  <td><a href="r8-train-no-short.txt">r8-train-no-short</a><br>2.90 Mb</td>
+  <td><a href="r8-test-no-short.txt">r8-test-no-short</a><br>1.03 Mb</td>
+  <td><a href="r52-train-no-short.txt">r52-train-no-short</a><br>3.71 Mb</td>
+  <td><a href="r52-test-no-short.txt">r52-test-no-short</a><br>1.32 Mb</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>no-stop</strong></div></td>
+  <td><a href="r8-train-no-stop.txt">r8-train-no-stop</a><br>2.42 Mb</td>
+  <td><a href="r8-test-no-stop.txt">r8-test-no-stop</a><br>0.86 Mb</td>
+  <td><a href="r52-train-no-stop.txt">r52-train-no-stop</a><br>3.08 Mb</td>
+  <td><a href="r52-test-no-stop.txt">r52-test-no-stop</a><br>1.09 Mb</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>stemmed</strong></div></td>
+  <td><a href="r8-train-stemmed.txt">r8-train-stemmed</a><br>2.13 Mb</td>
+  <td><a href="r8-test-stemmed.txt">r8-test-stemmed</a><br>0.76 Mb</td>
+  <td><a href="r52-train-stemmed.txt">r52-train-stemmed</a><br>2.71 Mb</td>
+  <td><a href="r52-test-stemmed.txt">r52-test-stemmed</a><br>0.96 Mb</td>
+</tr>
+</table>
+
+
+<p><table border="1" align="center">
+<tr align="center">
+  <th colspan="1"></th>
+  <th colspan="2">Cade12</th> 
+</tr>
+<tr align="center">
+  <th></th>
+  <th>Train</th> <th>Test</th> 
+</tr>
+<tr align="right">
+  <td>#&nbsp;documents</td>
+  <td> 27322 docs</td>
+  <td> 13661 docs</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>stemmed</strong></div></td>
+  <td><a href="cade-train-stemmed.txt">cade-train-stemmed</a><br>24.50 Mb</td>
+  <td><a href="cade-test-stemmed.txt">cade-test-stemmed</a><br>11.65 Mb</td>
+</tr>
+</table>
+
+
+<p><table border="1" align="center">
+<tr align="center">
+  <th colspan="1"></th>
+  <th colspan="2">WebKB</th> 
+</tr>
+<tr align="center">
+  <th></th>
+  <th>Train</th> <th>Test</th> 
+</tr>
+<tr align="right">
+  <td>#&nbsp;documents</td>
+  <td> 2803 docs</td>
+  <td> 1396 docs</td>
+</tr>
+<tr align="right">
+  <td><div align="left"><strong>stemmed</strong></div></td>
+  <td><a href="webkb-train-stemmed.txt">webkb-train-stemmed</a><br>2.40 Mb</td>
+  <td><a href="webkb-test-stemmed.txt">webkb-test-stemmed</a><br>1.20 Mb</td>
+</tr>
+</table>
+
+<h3>File description</h3>
+
+<p>All of these are text files containing one <i>document</i> per line.
+
+<p>Each document is composed by its <i>class</i> and its <i>terms</i>.
+
+<p>Each document is represented by a "word" representing the
+document's class, a TAB character and then a sequence of "words"
+delimited by spaces, representing the terms contained in the
+document.
+
+
+<h3>Pre-processing</h3>
+
+<p>Except for the Cade12 dataset, from the original datasets, in order
+to obtain the present files, I applied the following pre-processing:
+
+<ol>
+<li> <strong>all-terms</strong> Obtained from the original datasets by
+applying the following transformations:
+<ol>
+<li> Substitute TAB, NEWLINE and RETURN characters by SPACE.
+<li> Keep only letters (that is, turn punctuation, numbers, etc. into SPACES).
+<li> Turn all letters to lowercase.
+<li> Substitute multiple SPACES by a single SPACE.
+<li> The title/subject of each document is simply added in the
+beginning of the document's text.
+</ol>
+
+<li> <strong>no-short</strong> Obtained from the previous file, by
+removing words that are less than 3 characters long.  
+For example, removing "he" but keeping "him".
+
+<li> <strong>no-stop</strong> Obtained from the previous file, by
+removing the 524 SMART stopwords.  Some of them had already been removed,
+because they were shorter than 3 characters.
+
+<li> <strong>stemmed</strong> Obtained from the previous file, by
+applying Porter's Stemmer to the remaining words.  Information about
+stemming can be found <a
+href="http://www.tartarus.org/~martin/PorterStemmer/">here</a>.  
+</ol>
+
+
+<h3>Some results</h3>
+
+<p>Just to give an idea of the relative hardness of each dataset, I
+have determined the accuracy that some of the most common
+classification methods achieve with them.  As usual, tfidf term
+weighting is used to represent document vectors, and they were
+normalized to unitary length.  The stemmed train and test sets were
+used for each dataset.
+
+<p>The "dumb classifier" is included as a baseline.  It ignores the
+query and always gives as the predicted class the most frequent class
+in the training set.
+
+
+<p><table border="1" align="center">
+<tr> <th colspan="6">Accuracy Values</th></tr>
+<tr> <th>Classification Method   </th><th>R8    </th><th>R52   </th><th>20Ng  </th><th>Cade12</th><th>WebKb </th></tr>
+<tr><td>Dumb classifier          </td><td>0.4947</td><td>0.4217</td><td>0.0530</td><td>0.2083</td><td>0.3897</td></tr>
+<tr><td>Vector Method            </td><td>0.7889</td><td>0.7687</td><td>0.7240</td><td>0.4142</td><td>0.6447</td></tr>
+<tr><td>kNN (k = 10)             </td><td>0.8524</td><td>0.8322</td><td>0.7593</td><td>0.5120</td><td>0.7256</td></tr>
+<tr><td>Centroid (Normalized Sum)</td><td>0.9356</td><td>0.8717</td><td>0.7885</td><td>0.5148</td><td>0.8266</td></tr>
+<tr><td>Naive Bayes              </td><td>0.9607</td><td>0.8692</td><td>0.8103</td><td>0.5727</td><td>0.8352</td></tr>
+<tr><td>SVM (Linear Kernel)      </td><td>0.9698</td><td>0.9377</td><td>0.8284</td><td>0.5284</td><td>0.8582</td></tr>
+</table>
+
+
+<p>Note that, because <strong>R8</strong>, <strong>R52</strong>, and
+<strong>WebKB</strong> are very skewed, the dumb classifier has a
+``reasonable'' performance for these datasets.  Also, it is worth
+noting that, while for <strong>R8</strong>, <strong>R52</strong>,
+<strong>20Ng</strong>, and <strong>webKB</strong> it is possible to
+find good classifiers, that is, classifiers that achieve a high
+accuracy, for <strong>Cade12</strong> the best we can get does not
+reach 58% accuracy, even with some of the best classifiers available.
+
+
+
+
+<p>Last updated April 2007.
+
+<p>Go back to <a href="http://web.ist.utl.pt/acardoso/">Ana's Homepage</a>
+
+</body> 
+</html>
