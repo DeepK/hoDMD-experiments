@@ -6,7 +6,7 @@ import argparse
 
 
 def pca_reduced(to_keep, vectors):
-	pca = PCA(n_components = to_keep, whiten = True).fit(vectors)
+	pca = PCA(n_components = to_keep, whiten = True, random_state = 42).fit(vectors)
 	return numpy.hstack(pca.components_[:to_keep, :])
 
 
