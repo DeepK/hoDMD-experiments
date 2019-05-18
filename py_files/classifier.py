@@ -11,7 +11,7 @@ def train_best(X_train, Y_train, X_test, Y_test):
   best_f = 0
   best_report = ""
   for C in [0.001, 0.1, 1, 10, 100]:
-    svm_model_linear = SVC(kernel = 'linear', C = C, class_weight = 'balanced', max_iter = 5000, random_state = 42).fit(X_train, Y_train) 
+    svm_model_linear = SVC(kernel = 'linear', C = C, class_weight = 'balanced', max_iter = 2000, random_state = 42).fit(X_train, Y_train) 
     svm_predictions = svm_model_linear.predict(X_test)
     f = f1_score(Y_test, svm_predictions, average = 'weighted')
 
