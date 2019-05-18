@@ -3,12 +3,12 @@
 This repo contains the code and data to produce the results as reported in the paper titled: **EigenSent: Spectral sentence embeddings using higher-order Dynamic Mode Decomposition** accepted at **ACL 2019** as a long paper.
 If you use this code in your work or experiments, please cite the paper as:
 
-@inproceedings{eigensent,
+```@inproceedings{eigensent,
  author = {Kayal, Subhradeep and Tsatsaronis, George},
  title = {EigenSent: Spectral sentence embeddings using higher-order Dynamic Mode Decomposition},
  booktitle = {Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics (ACL)},
  year = {2019}
-}
+}```
 
 ## Guide to run code
 
