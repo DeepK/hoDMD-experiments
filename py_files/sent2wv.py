@@ -4,6 +4,7 @@ import re
 from safe_pickle import pickle_dump
 from dataloader import text_train_test_data_loader
 import argparse
+import os
 
 
 """
@@ -37,6 +38,8 @@ def sent_to_w2v_vectors(data, word2vec_model, outfile):
 
 		w2v_data.append([row[0], row[1], w2v, usedWords])
 
+	dirname = os.path.dirname(outfile)
+	os.makedirs(dirname, exist_ok=True)
 	pickle_dump(w2v_data, outfile)
 
 if __name__ == "__main__":
