@@ -3,3 +3,4 @@ data/pickled_data/
 data/results/
 resources/
 __pycache__/
+*.ipynb

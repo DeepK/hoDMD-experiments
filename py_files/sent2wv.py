@@ -8,7 +8,7 @@ import os
 
 
 """
-Given textual data, this method gets all the word vectors correpsonding
+Given textual data, this method gets all the word vectors corresponding
 to the data and pickles them to a file 
 """
 def sent_to_w2v_vectors(data, word2vec_model, outfile):
