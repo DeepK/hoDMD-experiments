@@ -14,8 +14,20 @@ year = {2019}
 
 ## Guide to run code
 
+### Prerequisites
+- pydmd (https://mathlab.github.io/PyDMD/hodmd.html)
+- bert as a service (https://bert-as-service.readthedocs.io)
+- tensorflow
+(apart from other common python packages)
+
+### Get resources
 - In the main folder do: ```mkdir resources```
 - Download the pretrained word embeddings from Google: ```GoogleNews-vectors-negative300.bin.gz``` and put them in the ```resources``` folder you've just created
+- Download the pretrained BERT model: ```https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-24_H-1024_A-16.zip```, copy to ```resources``` and unzip
+
+### Run code
+- Open a CLI and run ```bert-serving-start -model_dir <path-to>resources/uncased_L-24_H-1024_A-16/ -num_worker=<as many as possible on your system>```. Keep this running.
+- Open another CLI and ..
 - Go to ```sh_scripts``` and run: ```sh produce_pickled_resources.sh```
 - This should read the datasets and produce lists of word embeddings, one list per sentence in the original dataset, and write it to ```data/pickled_data/<dataset_name>```
 - For more information about the pickle files, read the code in ```py_files/sent2wv.py```
