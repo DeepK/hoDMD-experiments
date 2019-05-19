@@ -3,6 +3,8 @@ from traintestutil import train_test
 import numpy
 from functools import partial
 import argparse
+import warnings
+warnings.filterwarnings("ignore")
 
 
 def pca_reduced(to_keep, vectors):

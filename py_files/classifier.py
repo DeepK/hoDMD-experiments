@@ -1,5 +1,7 @@
 from sklearn.metrics import classification_report, f1_score
 from sklearn.svm import SVC
+import warnings
+warnings.filterwarnings("ignore")
 
 
 """

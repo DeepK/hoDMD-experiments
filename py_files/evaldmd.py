@@ -4,6 +4,9 @@ from traintestutil import train_test
 import numpy
 from functools import partial
 import argparse
+import warnings
+warnings.filterwarnings("ignore")
+
 
 def sentence_to_dmd_vec(to_keep, time_lags, concat_avg, vectors):
   v = numpy.asarray(vectors)
