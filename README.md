@@ -1,6 +1,6 @@
 ## Information about this repo
 
-This repo contains the code and data to produce the results as reported in the paper titled: **EigenSent: Spectral sentence embeddings using higher-order Dynamic Mode Decomposition** accepted at **ACL 2019** as a long paper.
+This repo contains the code and data to produce the results as reported in the paper titled: **EigenSent: Spectral sentence embeddings using higher-order Dynamic Mode Decomposition** accepted at **ACL 2019** as a long paper: https://www.aclweb.org/anthology/P19-1445.
 If you use this code in your work or experiments, please cite the paper as:
 
 ```
